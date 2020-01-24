@@ -98,5 +98,15 @@ namespace JPK
                 observableCollectionListaPlikow.Clear();
             }
         }
+
+        private void buttonUsunPlik_Click(object sender, RoutedEventArgs e)
+        {
+            String message = "Czy na pewno usunąć zaznaczony plik?";
+            if (MessageBox.Show(message, "iJPK", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                int pozycjaDoUsuniecia = listBoxPliki.SelectedIndex;
+                observableCollectionListaPlikow.RemoveAt(pozycjaDoUsuniecia);
+            }
+        }
     }
 }

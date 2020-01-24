@@ -43,7 +43,8 @@
                             Content="Usuń Plik"
                             Margin="10"
                             Padding="10"
-                            IsEnabled="{Binding ElementName=listBoxPliki, Path=SelectedItems.Count}" />
+                            IsEnabled="{Binding ElementName=listBoxPliki, Path=SelectedItems.Count}"
+                            Click="buttonUsunPlik_Click"/>
                     <Button x:Name="buttonWyczyscListe"
                             Content="Wyczyść listę"
                             Margin="10"
