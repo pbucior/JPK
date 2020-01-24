@@ -149,5 +149,12 @@ namespace JPK
             podgladSprzedazWindow.Owner = this;
             podgladSprzedazWindow.ShowDialog();
         }
+
+        private void buttonPokazZakupy_Click(object sender, RoutedEventArgs e)
+        {
+            PodgladZakupy podgladZakupyWindow = new PodgladZakupy(plikXML);
+            podgladZakupyWindow.Owner = this;
+            podgladZakupyWindow.ShowDialog();
+        }
     }
 }

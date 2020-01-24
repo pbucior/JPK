@@ -84,6 +84,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PodgladZakupy.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Plik.cs" />
@@ -92,6 +96,9 @@
     </Compile>
     <Compile Include="PodgladXML.xaml.cs">
       <DependentUpon>PodgladXML.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PodgladZakupy.xaml.cs">
+      <DependentUpon>PodgladZakupy.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

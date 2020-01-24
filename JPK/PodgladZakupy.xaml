@@ -1,0 +1,81 @@
+﻿<Window x:Class="JPK.PodgladZakupy"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:JPK"
+        mc:Ignorable="d"
+        Title="Podgląd Zakupów"
+        Height="620"
+        Width="1180"
+        MinHeight="620"
+        MinWidth="1180"
+        ShowInTaskbar="False"
+        WindowState="Maximized">
+    <Grid>
+        <DataGrid x:Name="dataGridZakupy"
+                  GridLinesVisibility="All"
+                  AutoGenerateColumns="False"
+                  CanUserSortColumns="False"
+                  IsReadOnly="True"
+                  SelectionMode="Single">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Lp"
+                                    Binding="{Binding LpZakupu}"
+                                    CellStyle="{StaticResource DataGridCellCentered}" />
+                <DataGridTextColumn Header="Nr Dostawcy"
+                                    Binding="{Binding NrDostawcy}"
+                                    CellStyle="{StaticResource DataGridCellCentered}" />
+                <DataGridTextColumn Header="Nazwa Dostawcy"
+                                    Binding="{Binding NazwaDostawcy}"
+                                    CellStyle="{StaticResource DataGridCellLeft}" />
+                <DataGridTextColumn Header="Adres Dostawcy"
+                                    Binding="{Binding AdresDostawcy}"
+                                    CellStyle="{StaticResource DataGridCellLeft}" />
+                <DataGridTextColumn Header="Dowód Zakupu"
+                                    Binding="{Binding DowodZakupu}"
+                                    CellStyle="{StaticResource DataGridCellLeft}" />
+                <DataGridTextColumn Header="Data Zakupu"
+                                    Binding="{Binding DataZakupu}"
+                                    CellStyle="{StaticResource DataGridCellCentered}" />
+                <DataGridTextColumn Header="Data Wpływu"
+                                    Binding="{Binding DataWplywu}"
+                                    CellStyle="{StaticResource DataGridCellCentered}" />
+                <DataGridTextColumn Header="K_43"
+                                    Binding="{Binding K_43}"
+                                    CellStyle="{StaticResource DataGridCellRight}" />
+                <DataGridTextColumn Header="K_44"
+                                    Binding="{Binding K_44}"
+                                    CellStyle="{StaticResource DataGridCellRight}" />
+                <DataGridTextColumn Header="K_45"
+                                    Binding="{Binding K_45}"
+                                    CellStyle="{StaticResource DataGridCellRight}" />
+                <DataGridTextColumn Header="K_46"
+                                    Binding="{Binding K_46}"
+                                    CellStyle="{StaticResource DataGridCellRight}" />
+                <DataGridTextColumn Header="K_47"
+                                    Binding="{Binding K_47}"
+                                    CellStyle="{StaticResource DataGridCellRight}" />
+                <DataGridTextColumn Header="K_48"
+                                    Binding="{Binding K_48}"
+                                    CellStyle="{StaticResource DataGridCellRight}" />
+                <DataGridTextColumn Header="K_49"
+                                    Binding="{Binding K_49}"
+                                    CellStyle="{StaticResource DataGridCellRight}" />
+                <DataGridTextColumn Header="K_50"
+                                    Binding="{Binding K_50}"
+                                    CellStyle="{StaticResource DataGridCellRight}" />
+            </DataGrid.Columns>
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="FontWeight"
+                            Value="Bold" />
+                    <Setter Property="HorizontalContentAlignment"
+                            Value="Center" />
+                    <Setter Property="BorderThickness"
+                            Value="0,0,1,0" />
+                </Style>
+            </DataGrid.Resources>
+        </DataGrid>
+    </Grid>
+</Window>

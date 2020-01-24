@@ -78,7 +78,8 @@
                             Content="Zakupy"
                             Margin="10"
                             Padding="10"
-                            IsEnabled="{Binding ElementName=listBoxPliki, Path=SelectedItems.Count}"/>
+                            IsEnabled="{Binding ElementName=listBoxPliki, Path=SelectedItems.Count}"
+                            Click="buttonPokazZakupy_Click" />
                 </StackPanel>
             </Grid>
             <Grid Grid.Row="1">
