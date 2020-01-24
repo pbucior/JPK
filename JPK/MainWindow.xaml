@@ -5,8 +5,84 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:JPK"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="JPK"
+        Height="720"
+        Width="1280"
+        MinHeight="720"
+        MinWidth="1280"
+        WindowStartupLocation="CenterScreen">
+    <DockPanel>
+        <StatusBar DockPanel.Dock="Bottom"
+                   Background="Crimson">
+            <Button x:Name="buttonWybierzXSD"
+                    Content="Wybierz plik XSD"
+                    Margin="10"
+                    Padding="10" />
+        </StatusBar>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0"
+                  Background="Crimson">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <StackPanel Orientation="Horizontal"
+                            Grid.Column="0"
+                            HorizontalAlignment="Left">
+                    <Button x:Name="buttonDodajPlik"
+                            Content="Dodaj Plik"
+                            Margin="10"
+                            Padding="10" />
+                    <Button x:Name="buttonUsunPlik"
+                            Content="Usuń Plik"
+                            Margin="10"
+                            Padding="10" />
+                    <Button x:Name="buttonWyczyscListe"
+                            Content="Wyczyść listę"
+                            Margin="10"
+                            Padding="10" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal"
+                            Grid.Column="1"
+                            HorizontalAlignment="Right">
+                    <Button x:Name="buttonPokazXML"
+                            Content="XML"
+                            Margin="10"
+                            Padding="10" />
+                    <Button x:Name="buttonPokazSprzedaz"
+                            Content="Sprzedaż"
+                            Margin="10"
+                            Padding="10" />
+                    <Button x:Name="buttonPokazZakupy"
+                            Content="Zakupy"
+                            Margin="10"
+                            Padding="10" />
+
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+                <ListBox Grid.Column="0"
+                         x:Name="listBoxPliki"
+                         ScrollViewer.VerticalScrollBarVisibility="Visible">
+
+                </ListBox>
+                <RichTextBox x:Name="textBlockStatus"
+                             Grid.Column="1"
+                             IsDocumentEnabled="True"
+                             IsReadOnly="True"
+                             BorderThickness="0">
+
+                </RichTextBox>
+            </Grid>
+        </Grid>
+    </DockPanel>
+    
 </Window>
