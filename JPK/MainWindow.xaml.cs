@@ -11,6 +11,7 @@ namespace JPK
     {
         private ObservableCollection<Plik> observableCollectionListaPlikow = new ObservableCollection<Plik>();
         private string plikXSD;
+        private string plikXML;
 
         public MainWindow()
         {
@@ -116,7 +117,7 @@ namespace JPK
                 labelPlikXSD.Content = openFileDialog.FileName;
                 plikXSD = openFileDialog.FileName;
             }
-                
+
         }
 
         private void listBoxPliki_PreviewMouseLeftButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
@@ -124,12 +125,21 @@ namespace JPK
             var item = (sender as ListBox).SelectedItem;
             if (item != null)
             {
-                string plikXML = (item as Plik).Nazwa.ToString();
+                plikXML = (item as Plik).Nazwa.ToString();
                 textBlockStatus.Document.Blocks.Clear();
                 textBlockStatus.AppendText(XML.walidacjaInfo(plikXML, plikXSD));
             }
 
-  
+
+        }
+
+        private void buttonPokazXML_Click(object sender, RoutedEventArgs e)
+        {
+            PodgladXML podgladXMLWindow = new PodgladXML();
+            podgladXMLWindow.Owner = this;
+            Uri myUri = new Uri(plikXML);
+            podgladXMLWindow.webBrowserPodgladXML.Source = myUri;
+            podgladXMLWindow.ShowDialog();
         }
     }
 }

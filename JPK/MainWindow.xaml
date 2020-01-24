@@ -65,15 +65,19 @@
                     <Button x:Name="buttonPokazXML"
                             Content="XML"
                             Margin="10"
-                            Padding="10" />
+                            Padding="10"
+                            IsEnabled="{Binding ElementName=listBoxPliki, Path=SelectedItems.Count}"
+                            Click="buttonPokazXML_Click" />
                     <Button x:Name="buttonPokazSprzedaz"
                             Content="Sprzedaż"
                             Margin="10"
-                            Padding="10" />
+                            Padding="10"
+                            IsEnabled="{Binding ElementName=listBoxPliki, Path=SelectedItems.Count}"/>
                     <Button x:Name="buttonPokazZakupy"
                             Content="Zakupy"
                             Margin="10"
-                            Padding="10" />
+                            Padding="10"
+                            IsEnabled="{Binding ElementName=listBoxPliki, Path=SelectedItems.Count}"/>
                 </StackPanel>
             </Grid>
             <Grid Grid.Row="1">
