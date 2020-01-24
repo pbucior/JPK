@@ -15,10 +15,17 @@
     <DockPanel>
         <StatusBar DockPanel.Dock="Bottom"
                    Background="Crimson">
-            <Button x:Name="buttonWybierzXSD"
-                    Content="Wybierz plik XSD"
-                    Margin="10"
-                    Padding="10" />
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="buttonWybierzXSD"
+                        Content="Wybierz plik XSD"
+                        Margin="10"
+                        Padding="10" 
+                        Click="buttonWybierzXSD_Click"/>
+                <Label x:Name="labelPlikXSD"
+                       Foreground="White"
+                       FontWeight="Bold"
+                       VerticalAlignment="Center"/>
+            </StackPanel>
         </StatusBar>
         <Grid>
             <Grid.RowDefinitions>

@@ -1,21 +1,14 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections.ObjectModel;
-using System.IO;
-using System.Linq;
 using System.Text;
 using System.Windows;
-using System.Xml;
-using System.Xml.Schema;
 
 namespace JPK
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
-        public ObservableCollection<Plik> observableCollectionListaPlikow = new ObservableCollection<Plik>();
+        private ObservableCollection<Plik> observableCollectionListaPlikow = new ObservableCollection<Plik>();
 
         public MainWindow()
         {
@@ -107,6 +100,17 @@ namespace JPK
                 int pozycjaDoUsuniecia = listBoxPliki.SelectedIndex;
                 observableCollectionListaPlikow.RemoveAt(pozycjaDoUsuniecia);
             }
+        }
+
+        private void buttonWybierzXSD_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Pliki XSD (*.XSD)| *.XSD";
+            openFileDialog.Multiselect = false;
+            openFileDialog.Title = "Wybierz pliki do wczytania";
+
+            if (openFileDialog.ShowDialog() == true)
+                labelPlikXSD.Content = openFileDialog.FileName;
         }
     }
 }
