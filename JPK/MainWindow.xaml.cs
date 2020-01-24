@@ -89,5 +89,14 @@ namespace JPK
             elementListy.Nazwa = element;
             listaPlikow.Add(elementListy);
         }
+
+        private void buttonWyczyscListe_Click(object sender, RoutedEventArgs e)
+        {
+            String message = "Czy na pewno usunąć wszystkie pliki?";
+            if (MessageBox.Show(message, "JPK", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                observableCollectionListaPlikow.Clear();
+            }
+        }
     }
 }

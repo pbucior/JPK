@@ -48,7 +48,8 @@
                             Content="Wyczyść listę"
                             Margin="10"
                             Padding="10"
-                            IsEnabled="{Binding ElementName=listBoxPliki, Path=Items.Count}" />
+                            IsEnabled="{Binding ElementName=listBoxPliki, Path=Items.Count}"
+                            Click="buttonWyczyscListe_Click"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal"
                             Grid.Column="1"
