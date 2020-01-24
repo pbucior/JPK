@@ -4,6 +4,73 @@
              xmlns:local="clr-namespace:JPK"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
+        <ResourceDictionary>
+            <Style x:Key="DataGridCellCentered"
+                   TargetType="DataGridCell">
+                <Setter Property="TextBlock.TextAlignment"
+                        Value="Center" />
+                <Setter Property="BorderThickness"
+                        Value="0" />
+                <Setter Property="FocusVisualStyle"
+                        Value="{x:Null}" />
+                <Style.Triggers>
+                    <Trigger Property="DataGridCell.IsSelected"
+                             Value="True">
+                        <Setter Property="Background"
+                                Value="#FFF44336" />
+                    </Trigger>
+                    <Trigger Property="DataGridCell.IsMouseCaptured"
+                             Value="True">
+                        <Setter Property="Background"
+                                Value="#FFF44336" />
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+            <Style x:Key="DataGridCellLeft"
+                   TargetType="DataGridCell">
+                <Setter Property="TextBlock.TextAlignment"
+                        Value="Left" />
+                <Setter Property="BorderThickness"
+                        Value="0" />
+                <Setter Property="FocusVisualStyle"
+                        Value="{x:Null}" />
+                <Style.Triggers>
+                    <Trigger Property="DataGridCell.IsSelected"
+                             Value="True">
+                        <Setter Property="Background"
+                                Value="#FFF44336" />
+                    </Trigger>
+                    <Trigger Property="DataGridCell.IsMouseCaptured"
+                             Value="True">
+                        <Setter Property="Background"
+                                Value="#FFF44336" />
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+            <Style x:Key="DataGridCellRight"
+                   TargetType="DataGridCell">
+                <Setter Property="TextBlock.TextAlignment"
+                        Value="Right" />
+                <Setter Property="BorderThickness"
+                        Value="0" />
+                <Setter Property="MinWidth"
+                        Value="100" />
+                <Setter Property="FocusVisualStyle"
+                        Value="{x:Null}" />
+                <Style.Triggers>
+                    <Trigger Property="DataGridCell.IsSelected"
+                             Value="True">
+                        <Setter Property="Background"
+                                Value="#FFF44336" />
+                    </Trigger>
+                    <Trigger Property="DataGridCell.IsMouseCaptured"
+                             Value="True">
+                        <Setter Property="Background"
+                                Value="#FFF44336" />
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+        </ResourceDictionary>
          
     </Application.Resources>
 </Application>

@@ -76,6 +76,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="PodgladSprzedaz.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PodgladXML.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -83,6 +87,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Plik.cs" />
+    <Compile Include="PodgladSprzedaz.xaml.cs">
+      <DependentUpon>PodgladSprzedaz.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PodgladXML.xaml.cs">
       <DependentUpon>PodgladXML.xaml</DependentUpon>
     </Compile>

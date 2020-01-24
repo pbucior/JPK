@@ -72,7 +72,8 @@
                             Content="Sprzedaż"
                             Margin="10"
                             Padding="10"
-                            IsEnabled="{Binding ElementName=listBoxPliki, Path=SelectedItems.Count}"/>
+                            IsEnabled="{Binding ElementName=listBoxPliki, Path=SelectedItems.Count}"
+                            Click="buttonPokazSprzedaz_Click" />
                     <Button x:Name="buttonPokazZakupy"
                             Content="Zakupy"
                             Margin="10"

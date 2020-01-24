@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
+using System.Xml.Linq;
 
 namespace JPK
 {
@@ -140,6 +141,13 @@ namespace JPK
             Uri myUri = new Uri(plikXML);
             podgladXMLWindow.webBrowserPodgladXML.Source = myUri;
             podgladXMLWindow.ShowDialog();
+        }
+
+        private void buttonPokazSprzedaz_Click(object sender, RoutedEventArgs e)
+        {
+            PodgladSprzedaz podgladSprzedazWindow = new PodgladSprzedaz(plikXML);
+            podgladSprzedazWindow.Owner = this;
+            podgladSprzedazWindow.ShowDialog();
         }
     }
 }
