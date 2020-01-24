@@ -22,8 +22,6 @@ namespace JPK
             return schema;
         }
 
-
-
         public static string walidacjaInfo(string plik, string xsd)
         {
             StringBuilder tekstBledy = new StringBuilder();
@@ -72,6 +70,31 @@ namespace JPK
                 MessageBox.Show(e.Message, "JPK");
             }
             return info;
+        }
+
+        public static bool walidacja(string plik, string xsd)
+        {
+            bool czyPlikOk = true;
+            try
+            {
+                XmlSchemaSet schemaSet = pobierzSchematXSD(xsd);
+                using (StreamReader streamReader = new StreamReader(plik, Encoding.UTF8))
+                {
+                    string zawartoscPliku = streamReader.ReadToEnd();
+                    XDocument xdoc = new XDocument();
+                    xdoc = XDocument.Parse(zawartoscPliku);
+
+                    xdoc.Validate(schemaSet, (s, er) =>
+                    {
+                        czyPlikOk = false;
+                    });
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "JPK");
+            }
+            return czyPlikOk;
         }
     }
 }

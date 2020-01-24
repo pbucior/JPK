@@ -78,7 +78,7 @@ namespace JPK
         private void dodajElementDoListy(String element, ObservableCollection<Plik> listaPlikow)
         {
             Plik elementListy = new Plik();
-            elementListy.Status = true;
+            elementListy.Status = XML.walidacja(element, plikXSD);
             elementListy.CzyPolaczony = false;
             elementListy.IdPliku = "";
             elementListy.Nazwa = element;
