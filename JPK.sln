@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29709.97
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JPK", "JPK\JPK.csproj", "{DD48E0D4-3C36-4631-937A-0CBC25C2CDBE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DD48E0D4-3C36-4631-937A-0CBC25C2CDBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD48E0D4-3C36-4631-937A-0CBC25C2CDBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD48E0D4-3C36-4631-937A-0CBC25C2CDBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD48E0D4-3C36-4631-937A-0CBC25C2CDBE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D5A65009-9E73-4A41-9422-60A9DE16D7EE}
+	EndGlobalSection
+EndGlobal
