@@ -3,12 +3,14 @@ using System;
 using System.Collections.ObjectModel;
 using System.Text;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace JPK
 {
     public partial class MainWindow : Window
     {
         private ObservableCollection<Plik> observableCollectionListaPlikow = new ObservableCollection<Plik>();
+        private string plikXSD;
 
         public MainWindow()
         {
@@ -110,7 +112,24 @@ namespace JPK
             openFileDialog.Title = "Wybierz pliki do wczytania";
 
             if (openFileDialog.ShowDialog() == true)
+            {
                 labelPlikXSD.Content = openFileDialog.FileName;
+                plikXSD = openFileDialog.FileName;
+            }
+                
+        }
+
+        private void listBoxPliki_PreviewMouseLeftButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            var item = (sender as ListBox).SelectedItem;
+            if (item != null)
+            {
+                string plikXML = (item as Plik).Nazwa.ToString();
+                textBlockStatus.Document.Blocks.Clear();
+                textBlockStatus.AppendText(XML.walidacjaInfo(plikXML, plikXSD));
+            }
+
+  
         }
     }
 }

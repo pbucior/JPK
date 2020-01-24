@@ -83,7 +83,8 @@
                 </Grid.ColumnDefinitions>
                 <ListBox Grid.Column="0"
                          x:Name="listBoxPliki"
-                         ScrollViewer.VerticalScrollBarVisibility="Visible">
+                         ScrollViewer.VerticalScrollBarVisibility="Visible"
+                         PreviewMouseLeftButtonUp="listBoxPliki_PreviewMouseLeftButtonUp">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <Grid Margin="0,2">
