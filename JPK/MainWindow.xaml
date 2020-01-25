@@ -58,6 +58,11 @@
                             Padding="10"
                             IsEnabled="{Binding ElementName=listBoxPliki, Path=Items.Count}"
                             Click="buttonWyczyscListe_Click"/>
+                    <Button x:Name="buttonPolaczPliki"
+                            Content="Połącz pliki"
+                            Margin="10"
+                            Padding="10"
+                            Click="buttonPolaczPliki_Click" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal"
                             Grid.Column="1"
@@ -165,7 +170,8 @@
                              Grid.Column="1"
                              IsDocumentEnabled="True"
                              IsReadOnly="True"
-                             BorderThickness="0">
+                             BorderThickness="0"
+                             Padding="10">
                 </RichTextBox>
             </Grid>
         </Grid>

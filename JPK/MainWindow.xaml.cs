@@ -1,6 +1,7 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -18,6 +19,7 @@ namespace JPK
         {
             InitializeComponent();
             listBoxPliki.ItemsSource = observableCollectionListaPlikow;
+            buttonPolaczPliki.IsEnabled = czyPlikiOk();
         }
 
         private void buttonDodajPlik_Click(object sender, RoutedEventArgs e)
@@ -74,6 +76,7 @@ namespace JPK
                         + pominietePliki.ToString();
                     MessageBox.Show(message, naglowek, MessageBoxButton.OK);
                 }
+                buttonPolaczPliki.IsEnabled = czyPlikiOk();
             }
         }
 
@@ -93,6 +96,7 @@ namespace JPK
             if (MessageBox.Show(message, "JPK", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
                 observableCollectionListaPlikow.Clear();
+                buttonPolaczPliki.IsEnabled = czyPlikiOk();
             }
         }
 
@@ -103,6 +107,7 @@ namespace JPK
             {
                 int pozycjaDoUsuniecia = listBoxPliki.SelectedIndex;
                 observableCollectionListaPlikow.RemoveAt(pozycjaDoUsuniecia);
+                buttonPolaczPliki.IsEnabled = czyPlikiOk();
             }
         }
 
@@ -155,6 +160,27 @@ namespace JPK
             PodgladZakupy podgladZakupyWindow = new PodgladZakupy(plikXML);
             podgladZakupyWindow.Owner = this;
             podgladZakupyWindow.ShowDialog();
+        }
+
+        private void buttonPolaczPliki_Click(object sender, RoutedEventArgs e)
+        {
+            buttonPolaczPliki.IsEnabled = czyPlikiOk();
+        }
+
+        private bool czyPlikiOk()
+        {
+            bool czyPlikiOk = false;
+
+            if (observableCollectionListaPlikow.Count > 1)
+            {
+                czyPlikiOk = true;
+                for (int i = 0; i < observableCollectionListaPlikow.Count(); i++)
+                {
+                    if (observableCollectionListaPlikow[i].Status == false) czyPlikiOk = false;
+                }
+            }
+
+            return czyPlikiOk;
         }
     }
 }
