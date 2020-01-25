@@ -53,13 +53,13 @@ namespace JPK
                             }
                             if (!czyIstnieje)
                             {
-                                dodajElementDoListy(file, observableCollectionListaPlikow);
+                                dodajElementDoListy(file, observableCollectionListaPlikow, false);
                                 listBoxPliki.UnselectAll();
                             }
                         }
                         else
                         {
-                            dodajElementDoListy(file, observableCollectionListaPlikow);
+                            dodajElementDoListy(file, observableCollectionListaPlikow, false);
                             listBoxPliki.UnselectAll();
                         }
                     }
@@ -80,11 +80,11 @@ namespace JPK
             }
         }
 
-        private void dodajElementDoListy(String element, ObservableCollection<Plik> listaPlikow)
+        private void dodajElementDoListy(String element, ObservableCollection<Plik> listaPlikow, bool czyPolaczony)
         {
             Plik elementListy = new Plik();
             elementListy.Status = XML.walidacja(element, plikXSD);
-            elementListy.CzyPolaczony = false;
+            elementListy.CzyPolaczony = czyPolaczony;
             elementListy.IdPliku = "";
             elementListy.Nazwa = element;
             listaPlikow.Add(elementListy);
@@ -164,6 +164,29 @@ namespace JPK
 
         private void buttonPolaczPliki_Click(object sender, RoutedEventArgs e)
         {
+            var xml1 = XDocument.Load(observableCollectionListaPlikow[0].Nazwa);
+            var tns = xml1.Root.Name.Namespace;
+
+            for (int i = 1; i < observableCollectionListaPlikow.Count(); i++)
+            {
+                var xml2 = XDocument.Load(observableCollectionListaPlikow[i].Nazwa);
+                xml1.Descendants(tns + "SprzedazWiersz").LastOrDefault().AddAfterSelf(xml2.Descendants(tns + "SprzedazWiersz"));
+                xml1.Descendants(tns + "ZakupWiersz").LastOrDefault().AddAfterSelf(xml2.Descendants(tns + "ZakupWiersz"));
+            }
+
+            var now = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
+
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.InitialDirectory = "Output";
+            saveFileDialog.Filter = "Plik XML (*.XML)|*.xml";
+            saveFileDialog.FilterIndex = 1;
+
+            if (saveFileDialog.ShowDialog() == true)
+            {
+                xml1.Save(saveFileDialog.FileName);
+                dodajElementDoListy(saveFileDialog.FileName, observableCollectionListaPlikow, true);
+            }
+
             buttonPolaczPliki.IsEnabled = czyPlikiOk();
         }
 
@@ -176,7 +199,7 @@ namespace JPK
                 czyPlikiOk = true;
                 for (int i = 0; i < observableCollectionListaPlikow.Count(); i++)
                 {
-                    if (observableCollectionListaPlikow[i].Status == false) czyPlikiOk = false;
+                    if ((observableCollectionListaPlikow[i].Status == false) || (observableCollectionListaPlikow[i].CzyPolaczony == true)) czyPlikiOk = false;
                 }
             }
 

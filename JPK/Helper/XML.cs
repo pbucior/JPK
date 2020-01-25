@@ -10,8 +10,6 @@ namespace JPK
 {
     public class XML
     {
-        public static string ns;
-
         private static XmlSchemaSet pobierzSchematXSD(string xsd)
         {
             XmlSchemaSet schema = new XmlSchemaSet();
